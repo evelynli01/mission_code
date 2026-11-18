@@ -1,0 +1,120 @@
+{
+  "title": "Mission: Code",
+  "hook": "Guide secret agents with code",
+  "game_overview": "Spy puzzle game where players infiltrate CyberVault Tower across five floors to retrieve the Python Manual, mastering sequencing and variables via interactive tutorials.",
+  "artstyle": "modern-vector",
+  "genre": "puzzle",
+  "winning_condition": "Ascend through CyberVault Tower by programming Agent Cipher with Python commands (sequencing, parameters, variables) to reach each floor terminal and breach the Penthouse Vault.",
+  "losing_condition": "The agent collides with a laboratory wall or security laser grid, or executes an invalid command, prompting immediate constructive diagnostic feedback and unlimited retry.",
+  "player_mode": "single_player",
+  "supported_orientations": [
+    "landscape",
+    "wide"
+  ],
+  "input_methods": [
+    "mouse",
+    "keyboard",
+    "touch"
+  ],
+  "score_options": {
+    "score_type": "points",
+    "score_order": "higher_is_better"
+  },
+  "low_end_device_support": true,
+  "mobile_playable": true,
+  "tv_playable": false,
+  "language": [
+    "en"
+  ],
+  "content_descriptors": [],
+  "controls": [
+    {
+      "input": "Mouse Click / Touch Tap",
+      "action": "Select code lines, click command palette shortcuts, and press Run Code / Step / Reset buttons."
+    },
+    {
+      "input": "Physical Keyboard",
+      "action": "Type Python commands directly into the code editor textarea."
+    },
+    {
+      "input": "Ctrl+Enter / Cmd+Enter",
+      "action": "Quick keyboard shortcut to compile and run the current code script."
+    },
+    {
+      "input": "On-Screen Touch Buttons",
+      "action": "Mobile accessible quick-insert chips for move_right(), move_up(), move_left(), and move_down()."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Design Pillars",
+      "content": "1. Comprehension Over Syntax Frustration: Provide immediate, friendly diagnostics for syntax mistakes without punishment. 2. Visible Cause and Effect: Every single code line corresponds to a smooth, visually distinct step on the physical laboratory grid. 3. Empowering Agency: Frame the player as an elite technical infiltrator using genuine Python-style programming to overcome high-security defenses.",
+      "summary": "Core foundational values balancing spy thrill with pedagogical coding."
+    },
+    {
+      "title": "Core Loop",
+      "content": "The player reviews Mission 01: Infiltrate the Lab and inspects the 8x8 facility floor plan. The player evaluates the obstacle positions and writes or edits Python commands in the integrated editor. Pressing 'Run Code' triggers step-by-step animated agent traversal with line highlighting. If the agent hits an obstacle or leaves the map, the simulation pauses with explanatory guidance and lets the player edit and retry. Upon reaching the terminal, the infiltration succeeds with celebratory telemetry feedback.",
+      "summary": "The cycle of reading the puzzle, authoring code, executing, and observing results."
+    },
+    {
+      "title": "Core Mechanics",
+      "content": "1. Safe Command Parser: Evaluates code via tokenization and AST regex validation; parses move_right(n), move_left(n), move_up(n), and move_down(n) with integer arguments (defaulting to 1 if omitted), rejecting arbitrary code or eval. 2. Step-by-Step Execution Engine: Animates the secret agent cell-by-cell at an adjustable execution speed, highlighting the active line of code in real time so students correlate commands with movement. 3. Obstacle Collision Detection: Prevents passing through steel walls and active laser barriers, providing descriptive diagnostics like 'Agent collided with Security Wall at grid (4, 2)'. 4. Terminal Activation: Interacting with the destination terminal triggers a decryption state with satisfying data streams.",
+      "summary": "Grid movement, safe command parsing, step animation, and terminal hacking."
+    },
+    {
+      "title": "Educational Coding Systems & Diagnostic Scaffolding",
+      "content": "The game introduces sequencing (the order of statements matters) and parameter passing (passing integers to specify steps). Starter code is provided: move_right(2)\\nmove_up(1). Friendly error handlers catch common beginner mistakes: misspelled commands ('did you mean move_right?'), mismatched parentheses, negative arguments, and unsupported syntax. An expandable 'Field Manual / Hints' drawer provides syntax references and progressive step hints without giving away the exact solution.",
+      "summary": "Pedagogical design catering to beginner programmers ages 12 to 16."
+    },
+    {
+      "title": "Movement & Scrolling Alignment",
+      "content": "Scrolling Axis: Fixed single-screen viewport with zero camera scrolling; the laboratory grid and control panel occupy the screen simultaneously. Asset Orientation: All entities, terminal anchors, and security barriers are rendered in strict top-down orthogonal perspective facing along cardinal grid axes. Movement Physics: Smooth interpolated tweening from cell center to cell center (300ms per step) with subtle agent rotation in the facing direction (East=0deg, North=270deg, West=180deg, South=90deg).",
+      "summary": "Fixed orthogonal top-down grid with strict cardinal movement."
+    },
+    {
+      "title": "Visual Hierarchy & Layering",
+      "content": "1. Background Layer: Desaturated dark navy (#0B111E) floor tiles with subtle hexagonal circuit lines and muted blue (#1A2338) partition borders. 2. Playfield Grid Layer: Crisp coordinate markers (A-H, 1-8), steel security pillars, neon-mint (#4EFA8B) terminal glow, and lavender (#B497FF) stealth laser grids. 3. Character Layer: Secret agent operative with trench coat silhouette, sleek spy visor with warm yellow (#FFD166) illumination, and smooth shadow casting. 4. Interactive UI Layer: High-contrast code editor with syntax coloring (keywords in lavender, functions in mint, numbers in warm yellow), accessible buttons with distinct icons, and floating execution badges.",
+      "summary": "Modern spy laboratory aesthetic using dark navy, muted blue, lavender, mint, and warm yellow."
+    },
+    {
+      "title": "Solvability Guarantee & Level Design",
+      "content": "Mission 01 uses an 8x8 facility grid. The agent starts at (1, 1). The target terminal is positioned at (6, 5). Laboratory walls and laser barriers create a clear primary corridor requiring a sequence of horizontal and vertical navigation commands (e.g., move_right(3), move_down(4), move_right(2)). The path is guaranteed 100% obstacle-free along the intended trajectory and offers multiple valid alternative routes. A background solver verifies reachability before level initialization.",
+      "summary": "Risk-free solvable layout crafted for introductory mastery."
+    },
+    {
+      "title": "Characters & Environment",
+      "content": "1. Agent Cipher: The player's operative, rendered with clean vector geometry, facing indicator, and dynamic stealth footprint ripples. 2. Security Mainframe: The objective terminal with animated spinning cryptographic discs and a pulsing mint data port. 3. Facility Walls & Laser Emitters: Reinforced alloy barriers with glowing lavender energy barriers that buzz softly.",
+      "summary": "The operative, the laboratory security systems, and the mainframe terminal."
+    },
+    {
+      "title": "Fairness Tools & Beginner Scaffolding",
+      "content": "1. Step-by-Step Mode: Allows the player to manually advance one command at a time to debug pathing. 2. Path Projection Overlay: An optional toggleable holographic dashed line previewing where the current code will take the agent. 3. Reset Button: Instantly resets the agent back to the starting cell and clears execution status while preserving the player's typed code. 4. Starter Code Template: Prefilled with working introductory movements so the player never faces a blank screen.",
+      "summary": "Built-in assistance features to ensure zero player frustration."
+    },
+    {
+      "title": "Juice & Game Feel",
+      "content": "Anticipation Juice: Code editor line lights up with a subtle lavender pulse right before the agent begins moving that step. State Change Juice: Gentle electronic chirp and mint particle trail as the agent glides smoothly across grid lines. Impact/Resolution Juice: Reaching the terminal triggers glowing green circuit lines spreading across the laboratory floor, terminal screen unlocked animation, a celebratory espionage chime, and a congratulatory summary card.",
+      "summary": "Satisfying tactile and audiovisual feedback for educational engagement."
+    },
+    {
+      "title": "Social Mechanics & Audience",
+      "content": "Designed specifically for middle and high school students exploring Python for the first time. Eliminates intimidation through clean secret-agent gamification, clear feedback loops, and self-paced puzzle progression.",
+      "summary": "Ages 12-16 students, STEM classrooms, and self-directed coding learners."
+    },
+    {
+      "title": "Accessibility",
+      "content": "High-contrast color palette exceeding WCAG AA standards. Error states are communicated with both descriptive text badges and distinct geometric icons (never color alone). Keyboard-accessible code editing with standard tab handling and shortcut keys. Adjustable animation speed (1x, 2x, step-by-step) to accommodate varying cognitive processing speeds.",
+      "summary": "Inclusive design with multi-modal feedback and readable typography."
+    },
+    {
+      "title": "Structural Integrity",
+      "content": "Screen split into two main sections: Left pane houses the visual laboratory grid, agent, coordinates, and status HUD. Right pane houses the Mission Dossier (briefing & objectives), the Python Code Editor with line numbers and quick-insert command chips, and the Execution Control Bar (Run, Step, Reset, Speed). Success modal presents mission statistics: lines of code used, steps taken, and concept explanation.",
+      "summary": "Organized layout integrating split-screen briefing, code editor, and grid view."
+    },
+    {
+      "title": "Virtual Touch Controls Implementation",
+      "content": "Quick command chips allow tapping 'move_right(1)' directly into the editor for touchscreen tablet devices without requiring awkward mobile on-screen keyboards. All UI control buttons feature touch-none CSS, generous touch targets (minimum 44x44px), and proper pointer event handlers.",
+      "summary": "Mobile and tablet touch support for classroom devices."
+    }
+  ]
+}
